@@ -1,11 +1,9 @@
 const express = require("express");
 const app = express();
-
 const path = require("path");
 const bodyparser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
@@ -21,6 +19,14 @@ app.use(cors());
 app.use(cookieParser());
 
 app.use(express.static("public"))
+
+const characterRouter = require("./routers/charactersRoute");
+const comicRouter = require("./routers/comicsRoute")
+
+//Character Routes
+app.use("/api/characters", characterRouter);
+//Comic Routes
+app.use("/api/comics", comicRouter);
 
 var mongoDB = process.env.DB;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
