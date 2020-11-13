@@ -11,8 +11,8 @@ exports.getStories = (req, res, next) => {
       process.env.hash_value
   )
     .then((res) => res.json())
-    .then((characters) => {
-      res.status(200).json(characters.data.results);
+    .then((story) => {
+      res.status(200).json(story.data.results);
     });
 };
 
