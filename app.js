@@ -23,10 +23,18 @@ app.use(express.static("public"))
 const characterRouter = require("./routers/charactersRoute");
 const comicRouter = require("./routers/comicsRoute")
 
+
+//Root Route
+app.use("/", (req, res, next)=>{
+    res.json({
+        message: "Welcome to Combox"
+    })
+})
 //Character Routes
 app.use("/api/characters", characterRouter);
 //Comic Routes
 app.use("/api/comics", comicRouter);
+
 
 var mongoDB = process.env.DB;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
