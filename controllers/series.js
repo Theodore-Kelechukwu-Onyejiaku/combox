@@ -13,7 +13,10 @@ exports.getSeries = (req, res, next) => {
     .then((res) => res.json())
     .then((series) => {
       res.status(200).json(series.data.results);
-    });
+    })
+    .catch(error =>{
+      res.status(404).json(error)
+  })
 };
 
 exports.getSingleSeries = (req, res, next) => {
@@ -30,7 +33,10 @@ exports.getSingleSeries = (req, res, next) => {
     .then((res) => res.json())
     .then((series) => {
       res.status(200).json(series.data.results);
-    });
+    })
+    .catch(error =>{
+      res.status(404).json(error)
+    })
 };
 
 exports.getSingleSeriesComics = (req, res, next) => {
@@ -48,7 +54,10 @@ exports.getSingleSeriesComics = (req, res, next) => {
     .then((res) => res.json())
     .then((series) => {
       res.status(200).json(series.data.results);
-    });
+    })
+    .catch(error =>{
+      res.status(404).json(error)
+  })
 };
 
 exports.getSingleSeriesEvents = (req, res, next) => {
@@ -66,7 +75,10 @@ exports.getSingleSeriesEvents = (req, res, next) => {
     .then((res) => res.json())
     .then((series) => {
       res.status(200).json(series.data.results);
-    });
+    })
+    .catch(error =>{
+      res.status(404).json(error)
+  })
 };
 
 exports.getSingleSeriesStory = (req, res, next) => {
@@ -84,7 +96,10 @@ exports.getSingleSeriesStory = (req, res, next) => {
     .then((res) => res.json())
     .then((series) => {
       res.status(200).json(series.data.results);
-    });
+    })
+    .catch(error =>{
+      res.status(404).json(error)
+    })
 };
 
 exports.getSingleSeriesCharacter = (req, res, next) => {
@@ -102,5 +117,8 @@ exports.getSingleSeriesCharacter = (req, res, next) => {
     .then((res) => res.json())
     .then((series) => {
       res.status(200).json(series.data.results);
-    });
+    })
+    .catch(error =>{
+      res.status(404).json(error)
+  })
 };
