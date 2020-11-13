@@ -7,6 +7,9 @@ exports.getCharacters = (req, res , next)=>{
     .then(characters => {
         res.status(200).json(characters.data.results)
     })
+    .catch(error =>{
+        res.status(404).json(error)
+    })
 }
 
 exports.getSingleCharacter = (req, res, next)=>{
@@ -14,6 +17,9 @@ exports.getSingleCharacter = (req, res, next)=>{
     .then(res => res.json())
     .then(character => {
         res.status(200).json(character.data.results)
+    })
+    .catch(error =>{
+        res.status(404).json(error)
     })
 }
 
@@ -23,6 +29,9 @@ exports.getSingleCharacterComics = (req, res, next) =>{
     .then(character => {
         res.status(200).json(character.data.results)
     })
+    .catch(error =>{
+        res.status(404).json(error)
+    })
 }
 
 exports.getSingleCharacterEvents = (req, res, next) =>{
@@ -30,6 +39,9 @@ exports.getSingleCharacterEvents = (req, res, next) =>{
     .then(res => res.json())
     .then(character => {
         res.status(200).json(character.data.results)
+    })
+    .catch(error =>{
+        res.status(404).json(error)
     })
 }
 
@@ -40,6 +52,9 @@ exports.getSingleCharacterSeries = (req, res, next) =>{
     .then(character => {
         res.status(200).json(character.data.results)
     })
+    .catch(error =>{
+        res.status(404).json(error)
+    })
 }
 
 
@@ -48,5 +63,8 @@ exports.getSingleCharacterStories = (req, res, next) =>{
     .then(res => res.json())
     .then(character => {
         res.status(200).json(character.data.results)
+    })
+    .catch(error =>{
+        res.status(404).json(error)
     })
 }
