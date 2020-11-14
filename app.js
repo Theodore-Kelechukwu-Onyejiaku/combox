@@ -25,6 +25,7 @@ app.use(express.static("public"))
 const characterRouter = require("./routers/charactersRoute");
 const comicRouter = require("./routers/comicsRoute");
 const eventRouter = require("./routers/eventsRoute");
+const creatorRouter = require("./routers/creatorsRoute");
 
 
 //Character Routes
@@ -32,6 +33,7 @@ app.use("/api/characters", characterRouter);
 //Comic Routes
 app.use("/api/comics", comicRouter);
 app.use("/api/events", eventRouter);
+app.use("/api/creators", eventRouter);
 
 
 var mongoDB = process.env.DB;
