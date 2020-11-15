@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const bodyparser = require("body-parser");
+const logger = require('morgan');
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
@@ -13,6 +14,7 @@ require("dotenv").config();
 app.use(bodyparser.urlencoded({
     extended: true
 }));
+app.use(logger('dev'));
 app.use(bodyparser.json());
 app.use(cors());
 //Use of cookies
@@ -21,13 +23,15 @@ app.use(cookieParser());
 app.use(express.static("public"))
 
 const characterRouter = require("./routers/charactersRoute");
-const comicRouter = require("./routers/comicsRoute")
+const comicRouter = require("./routers/comicsRoute");
+const eventRouter = require("./routers/eventsRoute");
 
 
 //Character Routes
 app.use("/api/characters", characterRouter);
 //Comic Routes
 app.use("/api/comics", comicRouter);
+app.use("/api/events", eventRouter);
 
 
 var mongoDB = process.env.DB;
